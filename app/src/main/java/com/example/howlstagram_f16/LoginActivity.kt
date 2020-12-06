@@ -17,10 +17,10 @@ class LoginActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
-        emailEditText = findViewById(R.id.email_edittext)
-        passwordEditText = findViewById(R.id.password_edittext)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
+        emailEditText = findViewById(R.id.email_edittext)
+        passwordEditText = findViewById(R.id.password_edittext)
         binding.emailLoginButton.setOnClickListener {
             signinAndSignup()
         }
@@ -28,8 +28,8 @@ class LoginActivity : AppCompatActivity() {
 
     fun signinAndSignup() {
         auth?.createUserWithEmailAndPassword(
-            emailEditText.toString(),
-            passwordEditText.toString()
+            emailEditText?.text.toString(),
+            passwordEditText?.text.toString()
             //binding.emailEdittext.toString(),
             //binding.passwordEdittext.toString()
         )
@@ -49,8 +49,8 @@ class LoginActivity : AppCompatActivity() {
 
     fun signinEmail() {
         auth?.signInWithEmailAndPassword(
-            emailEditText.toString(),
-            passwordEditText.toString()
+            emailEditText?.text.toString(),
+            passwordEditText?.text.toString()
             //binding.emailEdittext.toString(),
             //binding.passwordEdittext.toString()
         )
